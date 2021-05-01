@@ -5,6 +5,10 @@ import { Book } from 'src/app/models/books.model';
   selector: 'app-book-list',
   template: `
     <div class="book-item" *ngFor="let book of books">
+      <img
+        [src]="book.volumeInfo?.imageLinks?.thumbnail"
+        [alt]="book.volumeInfo.categories"
+      />
       <p>
         <strong>{{ book.volumeInfo.title }}</strong>
       </p>

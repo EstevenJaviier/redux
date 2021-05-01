@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { GoogleBooksService } from './services/books.service';
 import {
   addBook,
   removeBook,
@@ -20,19 +19,17 @@ export class AppComponent implements OnInit {
   books$ = this.store.pipe(select(selectBooks));
   bookCollection$ = this.store.pipe(select(selectBookCollection));
 
+  constructor(private store: Store) {}
+
+  ngOnInit() {
+    this.store.dispatch(retrievedBookList());
+  }
+
   onAdd(bookId: string) {
     this.store.dispatch(addBook({ bookId }));
   }
 
   onRemove(bookId: string) {
     this.store.dispatch(removeBook({ bookId }));
-  }
-
-  constructor(private booksService: GoogleBooksService, private store: Store) {}
-
-  ngOnInit() {
-    this.booksService
-      .getBooks()
-      .subscribe((book) => this.store.dispatch(retrievedBookList({ book })));
   }
 }

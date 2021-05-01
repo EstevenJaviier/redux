@@ -11,6 +11,8 @@ import { booksReducer } from './state/books/books.reducer';
 import { collectionReducer } from './state/collections/collection.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
+import { BookEffects } from './state/books/books.effects';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent, BookListComponent, BookCollectionComponent],
@@ -19,6 +21,7 @@ import { environment } from 'src/environments/environment';
     RouterModule.forRoot([]),
     HttpClientModule,
     StoreModule.forRoot({ books: booksReducer, collection: collectionReducer }),
+    EffectsModule.forRoot([BookEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode

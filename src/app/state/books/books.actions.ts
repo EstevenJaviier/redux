@@ -12,6 +12,10 @@ export const removeBook = createAction(
 );
 
 export const retrievedBookList = createAction(
+  '[Book List/Page] Retrieve Books'
+);
+
+export const retrievedBookListSuccess = createAction(
   '[Book List/API] Retrieve Books Success',
   props<{ book: Book[] }>()
 );
