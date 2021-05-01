@@ -1,0 +1,11 @@
+.wrapper {
+  max-width: 1158px;
+  padding: 0 20px;
+  border: 1px solid;
+  margin: auto;
+}
+
+.aling {
+  display: flex;
+  align-items: flex-start;
+}
