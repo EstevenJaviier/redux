@@ -1,0 +1,24 @@
+<div class="container">
+  <h3 class="mt-3">Characters</h3>
+  <hr />
+  <div class="row">
+    <div class="col-lg-4 mb-4" *ngFor="let ch of characters$ | async">
+      <a [routerLink]="[ch.id]" class="link-character">
+        <div class="card">
+          <div class="container-img">
+            <img [src]="ch.image" class="card-img-top" [alt]="ch.name" />
+          </div>
+          <div class="card-body">
+            <h6 class="card-title text-uppercase">{{ ch.name }}</h6>
+            <ul>
+              <li>status: {{ ch.status }}</li>
+              <li>species: {{ ch.species }}</li>
+              <li>type: {{ ch.type || "unknowm" }}</li>
+              <li>gender: {{ ch.gender }}</li>
+            </ul>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

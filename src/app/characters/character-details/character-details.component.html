@@ -1,0 +1,31 @@
+<ng-container *ngIf="character$ | async as ch">
+  <div class="container">
+    <h3 class="mt-3">
+      Character: <strong>{{ ch.id }}</strong>
+    </h3>
+    <hr />
+
+    <div class="row">
+      <div class="col-lg-10">
+        <div class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-8">
+              <img [src]="ch.image" [alt]="ch.name" width="100%" />
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <h5 class="card-title">{{ ch.name }}</h5>
+                <ul>
+                  <li>status: {{ ch.status }}</li>
+                  <li>species: {{ ch.species }}</li>
+                  <li>type: {{ ch.type || "unknowm" }}</li>
+                  <li>gender: {{ ch.gender }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
