@@ -10,13 +10,7 @@ const _characterReducer = createReducer(
       return { ...state, characters: [...action.characters] };
     }
   ),
-  on(
-    CharacterActions.loadCharacterByIdSuccess,
-    (state: CharacterState, action) => {
-      return { ...state, character: action.character };
-    }
-  ),
-  on(CharacterActions.getCharacterId, (state: CharacterState, action) => ({
+  on(CharacterActions.loadCharacterById, (state: CharacterState, action) => ({
     ...state,
     characterId: action.id,
   }))

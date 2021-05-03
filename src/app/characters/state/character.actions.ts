@@ -23,8 +23,3 @@ export const loadCharacterByIdFailure = createAction(
   '[Character/Api] load CharacterById Failure',
   props<{ error: { message: string; status: number } }>()
 );
-
-export const getCharacterId = createAction(
-  '[Character/App] get Character Id',
-  props<{ id: number }>()
-);

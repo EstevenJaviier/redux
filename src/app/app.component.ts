@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { loadCharacters } from './characters/state/character.actions';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,7 @@ import { Store } from '@ngrx/store';
 export class AppComponent implements OnInit {
   constructor(private store: Store) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.store.dispatch(loadCharacters());
+  }
 }
