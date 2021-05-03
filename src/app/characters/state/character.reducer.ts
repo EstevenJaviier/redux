@@ -15,7 +15,11 @@ const _characterReducer = createReducer(
     (state: CharacterState, action) => {
       return { ...state, character: action.character };
     }
-  )
+  ),
+  on(CharacterActions.getCharacterId, (state: CharacterState, action) => ({
+    ...state,
+    characterId: action.id,
+  }))
 );
 
 export function characterReducer(state: CharacterState, action) {

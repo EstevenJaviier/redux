@@ -12,3 +12,14 @@ export const selectCharacterById = createSelector(
   getCharacterState,
   (state: CharacterState) => state.character
 );
+
+export const selectCurrentCharacterId = createSelector(
+  getCharacterState,
+  (state: CharacterState) => state.characterId
+);
+export const selectCurrentCharacter = createSelector(
+  getCharacterState,
+  selectCurrentCharacterId,
+  (state: CharacterState, id: number) =>
+    state.characters.find((character) => character.id === id)
+);
