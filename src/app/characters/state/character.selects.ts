@@ -3,7 +3,7 @@ import { CharacterState } from './character.state';
 
 const getCharacterState = createFeatureSelector<CharacterState>('characters');
 
-export const selectCharacter = createSelector(
+export const selectCharacters = createSelector(
   getCharacterState,
   (state: CharacterState) => state.characters
 );

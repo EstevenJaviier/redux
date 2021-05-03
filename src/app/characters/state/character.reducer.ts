@@ -4,11 +4,14 @@ import { initialState, CharacterState } from './character.state';
 
 const _characterReducer = createReducer(
   initialState,
-  on(CharacterActions.loadCharctersSuccess, (state: CharacterState, action) => {
-    return { ...state, characters: action.characters };
-  }),
   on(
-    CharacterActions.loadCharcterByIdSuccess,
+    CharacterActions.loadCharactersSuccess,
+    (state: CharacterState, action) => {
+      return { ...state, characters: [...action.characters] };
+    }
+  ),
+  on(
+    CharacterActions.loadCharacterByIdSuccess,
     (state: CharacterState, action) => {
       return { ...state, character: action.character };
     }

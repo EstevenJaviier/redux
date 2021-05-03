@@ -9,14 +9,14 @@ import * as CharacterActions from 'src/app/characters/state/character.actions';
 export class CharacterEffects {
   loadCharacters$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(CharacterActions.loadCharcters),
+      ofType(CharacterActions.loadCharacters),
       mergeMap(() =>
         this.characterService.getCharacters().pipe(
           map((data) =>
-            CharacterActions.loadCharctersSuccess({ characters: data.results })
+            CharacterActions.loadCharactersSuccess({ characters: data.results })
           ),
           catchError((error) =>
-            of(CharacterActions.loadCharctersFailure({ error }))
+            of(CharacterActions.loadCharactersFailure({ error }))
           )
         )
       )
@@ -25,14 +25,14 @@ export class CharacterEffects {
 
   loadCharacterById$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(CharacterActions.loadCharcterById),
+      ofType(CharacterActions.loadCharacterById),
       mergeMap((props) =>
         this.characterService.getCharacterById(props.id).pipe(
           map((character) =>
-            CharacterActions.loadCharcterByIdSuccess({ character })
+            CharacterActions.loadCharacterByIdSuccess({ character })
           ),
           catchError((error) =>
-            of(CharacterActions.loadCharcterByIdFailure({ error }))
+            of(CharacterActions.loadCharacterByIdFailure({ error }))
           )
         )
       )

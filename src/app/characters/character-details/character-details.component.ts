@@ -3,7 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Character } from 'src/app/interfaces/character.interface';
-import { loadCharcterById } from '../state/character.actions';
+import { loadCharacterById } from '../state/character.actions';
 import { selectCharacterById } from '../state/character.selects';
 
 @Component({
@@ -20,7 +20,7 @@ export class CharacterDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      this.store.dispatch(loadCharcterById({ id: +params.get('id') }));
+      this.store.dispatch(loadCharacterById({ id: +params.get('id') }));
     });
   }
 }
